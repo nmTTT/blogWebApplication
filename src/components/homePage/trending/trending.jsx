@@ -5,7 +5,9 @@ import { DataTrending } from "@/components/data";
 const Trending = () => {
   return (
     <div className="w-[70%] flex flex-col gap-8">
-      <p className="text-[1.8rem] font-semibold">Trending</p>
+      <div>
+        <span className="text-[1.8rem] font-semibold">Trending</span>
+      </div>
       <div className="flex gap-4 w-[100%]">
         {DataTrending.map((data) => (
           <TrendingCard
