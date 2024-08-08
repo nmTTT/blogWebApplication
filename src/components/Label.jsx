@@ -1,10 +1,10 @@
 import React from "react";
 
-const Label = () => {
+const Label = ({ text }) => {
   return (
     <div>
       <span className="rounded-md text-[8px] px-2.5 py-1 text-white bg-[#4B6BFB]">
-        Technology
+        {text}
       </span>
     </div>
   );

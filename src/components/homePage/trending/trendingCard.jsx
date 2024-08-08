@@ -1,13 +1,17 @@
 import Label from "@/components/Label";
 import React from "react";
 
-const TrendingCard = ({ images, title }) => {
+const TrendingCard = ({ images, description, text }) => {
   return (
-    <div className="flex flex-col relative w-[18.5rem] h-[20rem]">
-      <img src={images} alt="" className="absolute z-0 w-[100%] h-[100%]" />
-      <div className="absolute z-10 bottom-7 left-7">
-        <Label />
-        <p>{title}</p>
+    <div
+      className={`flex items-end h-[18rem] bg-blend-darken bg-center bg-cover rounded-2xl bg-[rgba(0,0,0,0.5)]`}
+      style={{
+        backgroundImage: `url(${images})`,
+      }}
+    >
+      <div className="flex flex-col gap-4 pl-6 pb-6">
+        <Label text={text} />
+        <p className="text-white w-[90%]">{description}</p>
       </div>
     </div>
   );

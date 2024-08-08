@@ -1,6 +1,6 @@
-export const Trending = [
+export const DataTrending = [
   {
-    images: "./images/tredning1.png",
+    images: "./images/trending1.png",
     description:
       "The Impact of Technology on the Workplace: How Technology is Changing",
   },
@@ -15,8 +15,17 @@ export const Trending = [
       "The Impact of Technology on the Workplace: How Technology is Changing ",
   },
   {
-    images: "./images/trending3.png",
+    images: "./images/trending4.png",
     description:
       "The Impact of Technology on the Workplace: How Technology is Changing ",
   },
 ];
+
+// export const DataBlogList = [
+//   {
+//       text: ,
+//       image: ,
+//       date: ,
+
+//   },
+// ]

@@ -11,7 +11,7 @@ const Heading = () => {
         <div className=" absolute bottom-3 left-3 bg-white rounded-md w-1/2 h-2/5">
           <div className="absolute w-[100%] p-4 flex flex-col justify-between h-[100%]">
             <div className="flex flex-col gap-2.5 w-4/5">
-              <Label />
+              <Label text={"Technology"} />
               <p className="text-3xl font-semibold text-wrap">
                 Grid system for better Design User Interface
               </p>
