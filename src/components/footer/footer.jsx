@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-2/3 flex justify-between border-t-2 py-5">
-        <img src="./images/Copyright.png" alt="" className="w-[15rem] h-14" />
+        <img src="images/Copyright.png" alt="" className="w-[15rem] h-14" />
         <div>
           <div className="flex gap-4 text-gray-600">
             <p className="py-1">Terms of Use</p>

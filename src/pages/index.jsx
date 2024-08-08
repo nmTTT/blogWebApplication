@@ -1,11 +1,9 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import Hero from "@/components/hero/hero";
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import HomePage from "../components/homePage/homePage";
+import SearchContext from "@/context";
 
 export default function Home() {
+  const articles = useContext(SearchContext);
   return (
     <main>
       <HomePage />
