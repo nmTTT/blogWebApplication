@@ -39,7 +39,7 @@ const BlogList = () => {
           </div>
         </div>
         <div className="w-[100%] grid grid-cols-3 gap-5">
-          {articles.map((data) => (
+          {articles?.map((data) => (
             <Link href={"/CardDetails"}>
               <Listcard
                 className="w-[100%]"

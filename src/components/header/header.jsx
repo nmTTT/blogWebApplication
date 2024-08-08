@@ -1,18 +1,14 @@
+import SearchContext from "@/context";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { CiSearch } from "react-icons/ci";
+import Heading from "../homepage/heading";
+import Trending from "../homepage/trending/trending";
 
-const Header = () => {
-  const { searchValue, setSearchValue } = useState("");
-  const { titles, setTitles } = useState(articles);
-  const handleChange = (text) => {
-    setSearchValue(text);
-    const findTitles = articles.filter((value) =>
-      value.title.toLowerCase().includes(text.toLowerCase())
-    );
-    setTitles(findTitles);
+const Header = ({ handleChange }) => {
+  const changeValue = (e) => {
+    handleChange(e.target.value);
   };
-
   return (
     <div className="flex justify-center items-center h-28 w-[100vw]">
       <div className="flex justify-between items-center w-2/3">
@@ -32,7 +28,7 @@ const Header = () => {
               id=""
               placeholder="Search"
               className="w-[100%] bg-gray-200"
-              onChange={handleChange}
+              onChange={changeValue}
             />
             <button>
               <CiSearch />
