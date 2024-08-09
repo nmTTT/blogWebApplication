@@ -3,20 +3,6 @@ import React, { useEffect, useState } from "react";
 import Listcard from "./Listcard";
 
 const BlogList = () => {
-  const [articles, setArticles] = useState([]);
-  const [count, setCount] = useState(0);
-  const getArticleData = async () => {
-    const response = await fetch(
-      `https://dev.to/api/articles?page=1&per_page=${9 + count}`
-    );
-    const data = await response.json();
-    setArticles(data);
-  };
-
-  useEffect(() => {
-    getArticleData();
-  }, [count]);
-
   console.log("articles", articles);
 
   return (
@@ -53,12 +39,7 @@ const BlogList = () => {
         </div>
         <div className="text-center">
           {" "}
-          <button
-            className="border py-3 px-5 rounded-md"
-            onClick={() => {
-              setCount(count + 3);
-            }}
-          >
+          <button className="border py-3 px-5 rounded-md" onClick={handleClick}>
             Load More
           </button>
         </div>
