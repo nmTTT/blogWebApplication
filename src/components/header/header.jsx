@@ -1,14 +1,11 @@
-import SearchContext from "@/context";
+import { SearchContext } from "@/context";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import Heading from "../homepage/heading";
-import Trending from "../homepage/trending/trending";
 
-const Header = ({ handleChange }) => {
-  const changeValue = (e) => {
-    handleChange(e.target.value);
-  };
+const Header = () => {
+  const { changeValue } = useContext(SearchContext);
+
   return (
     <div className="flex justify-center items-center h-28 w-[100vw]">
       <div className="flex justify-between items-center w-2/3">

@@ -2,9 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Listcard from "./Listcard";
 
-const BlogList = () => {
-  console.log("articles", articles);
-
+const BlogList = ({ articles, handleClick }) => {
   return (
     <div className="w-[100vw] flex justify-center">
       <div className="w-2/3 flex flex-col gap-8">

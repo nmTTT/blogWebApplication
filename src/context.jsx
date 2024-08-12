@@ -1,11 +1,15 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 const SearchContext = createContext();
 
-function SearchContextProvider() {
+const SearchContextProvider = ({ children }) => {
   const [articles, setArticles] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [count, setCount] = useState(9);
+
+  const changeValue = (e) => {
+    setSearchValue(e.target.value);
+  };
 
   const handleClick = () => {
     setCount(count + 3);
@@ -23,18 +27,19 @@ function SearchContextProvider() {
     getArticleData();
   }, [count]);
   return (
-    <SearchContextProvider
+    <SearchContext.Provider
       value={{
         articles,
         setCount,
         searchValue,
         setSearchValue,
         handleClick,
+        changeValue,
       }}
     >
       {children}
-    </SearchContextProvider>
+    </SearchContext.Provider>
   );
-}
+};
 
-export default SearchContextProvider;
+export { SearchContext, SearchContextProvider };
