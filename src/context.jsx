@@ -5,7 +5,22 @@ const SearchContext = createContext();
 const SearchContextProvider = ({ children }) => {
   const [articles, setArticles] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [count, setCount] = useState(9);
+  const [count, setCount] = useState();
+
+  const getArticleData = async () => {
+    console.log("DATA-GET", count);
+    const response = await fetch(
+      `https://dev.to/api/articles?page=1&per_page=${count}`
+    );
+    console.log("DD", response);
+    const data = await response.json();
+    console.log("DD", data);
+    setArticles(data);
+  };
+
+  useEffect(() => {
+    getArticleData();
+  }, [count]);
 
   const changeValue = (e) => {
     setSearchValue(e.target.value);
@@ -15,17 +30,6 @@ const SearchContextProvider = ({ children }) => {
     setCount(count + 3);
   };
 
-  const getArticleData = async () => {
-    const response = await fetch(
-      `https://dev.to/api/articles?page=1&per_page=${count}`
-    );
-    const data = await response.json();
-    setArticles(data);
-  };
-
-  useEffect(() => {
-    getArticleData();
-  }, [count]);
   return (
     <SearchContext.Provider
       value={{

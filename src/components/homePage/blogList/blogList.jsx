@@ -1,8 +1,19 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Listcard from "./Listcard";
+import { SearchContext } from "@/context";
 
-const BlogList = ({ articles, handleClick }) => {
+const BlogList = () => {
+  const { setCount, handleClick, searchValue, articles } =
+    useContext(SearchContext);
+
+  console.log("HOME-ART", articles);
+
+  useEffect(() => {
+    console.log("HOME-EFF");
+    setCount(9);
+  }, []);
+
   return (
     <div className="w-[100vw] flex justify-center">
       <div className="w-2/3 flex flex-col gap-8">
@@ -23,17 +34,24 @@ const BlogList = ({ articles, handleClick }) => {
           </div>
         </div>
         <div className="w-[100%] grid grid-cols-3 gap-5">
-          {articles?.map((data) => (
-            <Link href={"/CardDetails"}>
-              <Listcard
-                className="w-[100%]"
-                img={data.social_image}
-                title={data.title}
-                text={data.user.username}
-                date={data.created_at}
-              />
-            </Link>
-          ))}
+          {articles
+            .filter((value) =>
+              value.title.toLowerCase().includes(searchValue.toLowerCase())
+            )
+            .map((data) => {
+              console.log("I");
+              return (
+                <Link href={"/blog/" + data.id}>
+                  <Listcard
+                    className="w-[100%]"
+                    img={data.social_image}
+                    title={data.title}
+                    text={data.user.username}
+                    date={data.created_at}
+                  />
+                </Link>
+              );
+            })}
         </div>
         <div className="text-center">
           {" "}

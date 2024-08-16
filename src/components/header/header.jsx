@@ -4,13 +4,13 @@ import React, { useContext, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 
 const Header = () => {
-  const { changeValue } = useContext(SearchContext);
+  const { setSearchValue } = useContext(SearchContext);
 
   return (
     <div className="flex justify-center items-center h-28 w-[100vw]">
       <div className="flex justify-between items-center w-2/3">
         <div>
-          <img src="images/Logo.png" alt="" />
+          <img src="./images/Logo.png" alt="" />
         </div>
         <div className="flex justify-evenly w-4/5">
           <div className="flex gap-10 px-20">
@@ -25,7 +25,7 @@ const Header = () => {
               id=""
               placeholder="Search"
               className="w-[100%] bg-gray-200"
-              onChange={changeValue}
+              onChange={(e) => setSearchValue(e.target.value)}
             />
             <button>
               <CiSearch />
